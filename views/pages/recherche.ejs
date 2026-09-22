@@ -1,0 +1,75 @@
+<!-- views/pages/recherche.ejs -->
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <%- include('../partials/head') %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header') %>
+
+    </header>
+
+    <main>
+
+        <h1>Historique de commandes</h1>
+        <br>
+        <h3>Rechercher une commande par numéro de téléphone.</h3>
+
+        <form method="post" action="/recherche">
+
+            <div class="form-group">
+                <label for="telephone">Téléphone :</label>
+                <input type="text" name="telephone" id="telephone" required>
+            </div>
+
+            <button type="submit">Rechercher</button>
+        </form>
+
+        <% if (typeof commandes !=='undefined' ) { %>
+            <h2>Commandes trouvées</h2>
+
+            <% if (commandes.length===0) { %>
+                <p>Aucune commande trouvée pour ce numéro.</p>
+                <% } else { %>
+                    <% commandes.forEach(function(commande) { %>
+                        <article class="panel panel-default">
+                            <div class="panel-heading">
+                                Commande du <%= commande.date %>
+                            </div>
+                            <div class="panel-body">
+                                <p>Pizza : <%= commande.type %>
+                                </p>
+                                <p>Quantité : <%= commande.quantite %>
+                                </p>
+                                <p>Taille : <%= commande.taille %>
+                                </p>
+                                <p>Ingrédients : <%= (commande.extra || []).join(', ') || ' Aucun' %>
+                                </p>
+                                <p>Adresse : <%= commande.adresse %>
+                                </p>
+                                <p>Total : <%= commande.prixTotal %> $</p>
+                            </div>
+                        </article>
+                        <% }); %>
+                            <% } %>
+                                <% } %>
+
+    </main>
+
+
+
+    <footer>
+
+        <%- include('../partials/footer') %>
+
+    </footer>
+
+</body>
+
+</html>

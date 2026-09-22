@@ -3,7 +3,7 @@
   * @author   Maxim Jacquet (maxim.jacquet@outlook.com)
   * @version  1
   * @date     22/09/2026
-  * @brief    Première ébauche d'une architecture générique "RESTful" avec Express
+  * @brief    "main" du serveur de pizzeria
   */
 const PORT = 3000;
 var express = require('express');
@@ -28,6 +28,10 @@ app.use('/commande', require('./routes/commande'));
 
 // Résultat
 app.use('/resultat', require('./routes/resultat'));
+
+// Recherche
+app.use('/recherche', require('./routes/recherche'));
+
 
 // Gestion des erreurs 404
 app.use(function (req, res, next) {

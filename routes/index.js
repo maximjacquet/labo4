@@ -3,14 +3,16 @@
   * @author   Maxim Jacquet (maxim.jacquet@outlook.com)
   * @version  1
   * @date     22/09/2026
-  * @brief    Première ébauche d'une architecture générique "RESTful" avec Express
-  *          Routeur principal
+  * @brief    Routeur principal
+  *          
   */
 
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
+
+// LANCER LA PAGE D'ACCUEIL A L'APPEL DE LA ROUTE
+router.get('/', function (req, res, next) {
   res.render('pages/acceuil.ejs', { title: 'Accueil' });
 });
 

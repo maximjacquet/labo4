@@ -6,11 +6,6 @@
 
 <head>
     <%- include('../partials/head') %>
-    <style>
-        .commande-element {
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 
 <body class="container">
@@ -28,142 +23,149 @@
         <h3>
             <form method='post'>
 
-<%#-------------------------------------------------------------------------------%>
-                <div class="commande-element">
-                    <label>Type de pizza :</label><br>
+                <%#-------------------------------------------------------------------------------%>
+                    <div class="form-group">
+                        <label>Type de pizza :</label><br>
 
-                    <label>
-                        <input type="radio" name="type" value="Margarita" required>
-                        Margarita
-                    </label><br>
+                        <label>
+                            <input type="radio" name="type" value="Margarita" required>
+                            Margarita
+                        </label><br>
 
-                    <label>
-                        <input type="radio" name="type" value="Pepperoni" required>
-                        Pepperoni
-                    </label><br>
+                        <label>
+                            <input type="radio" name="type" value="Pepperoni" required>
+                            Pepperoni
+                        </label><br>
 
-                    <label>
-                        <input type="radio" name="type" value="Vegetarian" required>
-                        Végétarienne
-                    </label>
-                </div>
-
-
-<%#-------------------------------------------------------------------------------%>
-                <div class="commande-element">
-                    <label for="quantite">Quantité :</label>
-                    <br />
-                    <input type='number' name='quantite' value='1' min='1' max='99' required>
-                </div>
+                        <label>
+                            <input type="radio" name="type" value="Vegetarian" required>
+                            Végétarienne
+                        </label>
+                    </div>
 
 
-<%#-------------------------------------------------------------------------------%>
-
-                <div class="commande-element">
-                    <label for="taille">Taille de la pizza :</label>
-                    <br>
-
-                    <select id="taille" name="taille" required>
-                        <option value="">-- Choisissez une taille --</option>
-                        <option value="Petite">Petite</option>
-                        <option value="Moyenne">Moyenne</option>
-                        <option value="Grande">Grande</option>
-                    </select>
-                </div>
-
-<%#-------------------------------------------------------------------------------%>
-
-                <div class="commande-element">
-                    <label for="ingredients">Ingrédients supplémentaires :</label>
-                    <br>
-                    <label>
-                        <input type="checkbox" name="extra[]" value="Bacon">
-                        Bacon
-                    </label><br>
-
-                    <label>
-                        <input type="checkbox" name="extra[]" value="Fromage">
-                        Fromage
-                    </label><br>
-
-                    <label>
-                        <input type="checkbox" name="extra[]" value="Olives">
-                        Olives
-                    </label>
-                </div>
-<%#-------------------------------------------------------------------------------%>
-
-                <div class="commande-element">
-                    <label for="adresse">Adresse :</label>
-                    <br />
-                    <textarea name='adresse' required></textarea>
-                </div>
-
-<%#-------------------------------------------------------------------------------%>
-
-                <div class="commande-element">
-                    <label for="codePostal">Code Postal :</label>
-                    <br />
-                    <input type='text' name='codePostal' pattern="[A-Za-z][0-9][A-Za-z][ ]?[0-9][A-Za-z][0-9]" placeholder= "H1A 1A1" required>
-                </div>
-
-<%#-------------------------------------------------------------------------------%>
+                    <%#-------------------------------------------------------------------------------%>
+                        <div class="form-group">
+                            <label for="quantite">Quantité :</label>
+                            <br />
+                            <input type='number' name='quantite' value='1' min='1' max='99' required>
+                        </div>
 
 
-                <div class="commande-element">
-                    <label for="nom">Nom, Prénom:</label>
-                    <br />
-                    <input type='text' name='nom' value='' required placeholder="Nom, Prénom">
-                </div>
+                        <%#-------------------------------------------------------------------------------%>
 
-<%#-------------------------------------------------------------------------------%>
+                            <div class="form-group">
+                                <label for="taille">Taille de la pizza :</label>
+                                <br>
 
-                <div class="commande-element">
-                    <label for="telephone">Numéro de téléphone:</label>
-                    <br />
-                    <input type='text' name='telephone' pattern="[0-9 ()+-]{10,}" required placeholder="(123) 456-7890">
-                </div>
-<%#-------------------------------------------------------------------------------%>
+                                <select id="taille" name="taille" required>
+                                    <option value="">-- Choisissez une taille --</option>
+                                    <option value="Petite">Petite</option>
+                                    <option value="Moyenne">Moyenne</option>
+                                    <option value="Grande">Grande</option>
+                                </select>
+                            </div>
+
+                            <%#-------------------------------------------------------------------------------%>
+
+                                <div class="form-group">
+                                    <label for="ingredients">Ingrédients supplémentaires :</label>
+                                    <br>
+                                    <label>
+                                        <input type="checkbox" name="extra[]" value="Bacon">
+                                        Bacon
+                                    </label><br>
+
+                                    <label>
+                                        <input type="checkbox" name="extra[]" value="Fromage">
+                                        Fromage
+                                    </label><br>
+
+                                    <label>
+                                        <input type="checkbox" name="extra[]" value="Olives">
+                                        Olives
+                                    </label>
+                                </div>
+                                <%#-------------------------------------------------------------------------------%>
+
+                                    <div class="form-group">
+                                        <label for="adresse">Adresse :</label>
+                                        <br />
+                                        <textarea name='adresse' required></textarea>
+                                    </div>
+
+                                    <%#-------------------------------------------------------------------------------%>
+
+                                        <div class="form-group">
+                                            <label for="codePostal">Code Postal :</label>
+                                            <br />
+                                            <input type='text' name='codePostal'
+                                                pattern="[A-Za-z][0-9][A-Za-z][ ]?[0-9][A-Za-z][0-9]"
+                                                placeholder="H1A 1A1" required>
+                                        </div>
+
+                                        <%#-------------------------------------------------------------------------------%>
 
 
-                <div class="commande-element">
-                    <label for="email">Adresse Courriel:</label>
-                    <br />
-                    <input type='email' name='email' required placeholder="exemple@courriel.com">
-                </div>
+                                            <div class="form-group">
+                                                <label for="nom">Nom, Prénom:</label>
+                                                <br />
+                                                <input type='text' name='nom' value='' required
+                                                    placeholder="Nom, Prénom">
+                                            </div>
 
-<%#-------------------------------------------------------------------------------%>
+                                            <%#-------------------------------------------------------------------------------%>
 
-                <div class="commande-element">
-                    <label>Mode de paiement :</label><br>
+                                                <div class="form-group">
+                                                    <label for="telephone">Numéro de téléphone:</label>
+                                                    <br />
+                                                    <input type='text' name='telephone' pattern="[0-9 ()+-]{10,}"
+                                                        required placeholder="(123) 456-7890">
+                                                </div>
+                                                <%#-------------------------------------------------------------------------------%>
 
-                    <label>
-                        <input type="radio" name="paiement" value="comptant" required>
-                        Comptant
-                    </label><br>
 
-                    <label>
-                        <input type="radio" name="paiement" value="credit" required >
-                        Carte de crédit
-                    </label><br>
+                                                    <div class="form-group">
+                                                        <label for="email">Adresse Courriel:</label>
+                                                        <br />
+                                                        <input type='email' name='email' required
+                                                            placeholder="exemple@courriel.com">
+                                                    </div>
 
-                    <label>
-                        <input type="radio" name="paiement" value="debit" required>
-                        Carte de débit
-                    </label>
-                </div>
+                                                    <%#-------------------------------------------------------------------------------%>
 
-<%#-------------------------------------------------------------------------------%>
+                                                        <div class="form-group">
+                                                            <label>Mode de paiement :</label><br>
 
-                <div class="commande-element">
-                    <input type='submit' value='Confirmer ma commande' />
-                </div>
+                                                            <label>
+                                                                <input type="radio" name="paiement" value="comptant"
+                                                                    required>
+                                                                Comptant
+                                                            </label><br>
+
+                                                            <label>
+                                                                <input type="radio" name="paiement" value="credit"
+                                                                    required>
+                                                                Carte de crédit
+                                                            </label><br>
+
+                                                            <label>
+                                                                <input type="radio" name="paiement" value="debit"
+                                                                    required>
+                                                                Carte de débit
+                                                            </label>
+                                                        </div>
+
+                                                        <%#-------------------------------------------------------------------------------%>
+
+                                                            <div class="commande-element">
+                                                                <input type='submit' value='Confirmer ma commande' />
+                                                            </div>
 
             </form>
         </h3>
         </p>
 
-        <li><a href="/resultat">Voir les résultats</a></li>
     </main>
 
 

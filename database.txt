@@ -1,0 +1,1 @@
+{"type":"Pepperoni","quantite":"5","taille":"Grande","extra[]":["Bacon","Fromage","Olives"],"adresse":"Cegep Lionel Groulx","codePostal":"H1A 1A3","nom":"Jacquet, Maxim","telephone":"1234567890","email":"amisjdai@courriel.com","paiement":"credit","extra":["Bacon","Fromage","Olives"],"sousTotal":"102.00","taxe":"15.30","prixTotal":"117.30","date":"2026-09-22T15:04:47.393Z"}
