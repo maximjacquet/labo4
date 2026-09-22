@@ -1,0 +1,63 @@
+<!-- views/pages/resultat.ejs -->
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <%- include('../partials/head') %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header') %>
+
+    </header>
+
+    <main>
+
+        <h1>Résumé de la commande</h1>
+
+        <p>Type de pizza : <%= commande.type %>
+        </p>
+        <p>Quantité : <%= commande.quantite %>
+        </p>
+        <p>Taille : <%= commande.taille %>
+        </p>
+        <p>Adresse : <%= commande.adresse %>
+        </p>
+        <p>Code postal : <%= commande.codePostal %>
+        </p>
+        <p>Nom : <%= commande.nom %>
+        </p>
+        <p>Téléphone : <%= commande.telephone %>
+        </p>
+        <p>Courriel : <%= commande.email %>
+        </p>
+        <p>Mode de paiement : <%= commande.paiement %>
+        </p>
+
+        <h3>Ingrédients supplémentaires</h3>
+
+        <ul>
+            <% (commande.extra || []).forEach(function(ingredient) { %>
+                <li>
+                    <%= ingredient %>
+                </li>
+                <% }); %>
+        </ul>
+
+    </main>
+
+
+
+    <footer>
+
+        <%- include('../partials/footer') %>
+
+    </footer>
+
+</body>
+
+</html>

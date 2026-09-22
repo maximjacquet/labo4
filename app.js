@@ -17,15 +17,26 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(require('./routes/index'));
 
+
+// ROUTES //---------------------------------------------------------
+
+// Contacts
 app.use('/contacts', require('./routes/contacts'));
 
+// Commande
 app.use('/commande', require('./routes/commande'));
 
+// Résultat
+app.use('/resultat', require('./routes/resultat'));
 
+// Gestion des erreurs 404
 app.use(function (req, res, next) {
     res.status(404)
     res.render("pages/404.ejs");
 });
+
+
+
 
 let server = app.listen(PORT, function(){
     console.log('Server is running on port ' + PORT);

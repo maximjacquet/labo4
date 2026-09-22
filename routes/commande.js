@@ -14,4 +14,10 @@ router.get('/', function(req, res, next) {
   res.render('pages/commande.ejs', { title: 'Commande' });
 });
 
+router.post('/', function(req, res) {
+  res.render('pages/resultat.ejs', {
+    commande: req.body
+  });
+});
+
 module.exports = router;    
