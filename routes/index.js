@@ -11,7 +11,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.render('pages/accueil', { title: 'Accueil' });
+  res.render('pages/acceuil.ejs', { title: 'Accueil' });
 });
 
 module.exports = router;    

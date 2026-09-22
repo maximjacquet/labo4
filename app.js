@@ -16,7 +16,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(require('./routes/index'));
+
 app.use('/contacts', require('./routes/contacts'));
+
+app.use('/commande', require('./routes/commande'));
+
+
 app.use(function (req, res, next) {
     res.status(404)
     res.render("pages/404.ejs");
