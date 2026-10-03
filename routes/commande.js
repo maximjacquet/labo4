@@ -19,7 +19,8 @@ router.get('/', function (req, res, next) {
     res.render('pages/commande.ejs', { title: 'Commande' });
 });
 
-
+const PRIX_INGREDIENTS = 1.50; // Prix fixe pour chaque ingrédient supplémentaire
+const TAUX_TAXE = 0.15; // Taux de taxe fixe de 15%
 
 // LIRE LA RÉPONSE AU FORMULAIRE 
 router.post('/', function (req, res, next) {
@@ -44,9 +45,9 @@ router.post('/', function (req, res, next) {
         ? ingredientsEnvoyes
         : [ingredientsEnvoyes];
     const nombreIngredients = ingredients.length;
-
+    //C2: Chiffre magique
     // CALCULER LE PRIX DES EXTRAS
-    const prixExtras = nombreIngredients * 1.50;
+    const prixExtras = nombreIngredients * PRIX_INGREDIENTS;
 
     // MODULER LE PRIX SELON LA TAILLE
     const multiplicateursTailles = {
@@ -54,14 +55,16 @@ router.post('/', function (req, res, next) {
         Moyenne: 1,
         Grande: 1.2
     };
-
+    //A23 : Tu multiplie le prix des ingrédients selon la taille de la pizza, ce qui n'est pas sensé être le cas.
     // CALCULS FINALS
     const multiplicateurTaille = multiplicateursTailles[req.body.taille] || 1;
-    const prixAvecTaille = (prixType + prixExtras) * multiplicateurTaille;
-    const sousTotal = prixAvecTaille * quantite;
+    const prixAvecTaille = prixType * multiplicateurTaille;
+    const prixUnitaire = prixAvecTaille + prixExtras;
+    const sousTotal = prixUnitaire * quantite;
 
+    //C2: Chiffre magique
     // AJOUT DE LA TAXE
-    const taxe = sousTotal * 0.15;
+    const taxe = sousTotal * TAUX_TAXE;
     const prixTotal = sousTotal + taxe;
 
 
