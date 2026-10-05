@@ -13,6 +13,9 @@ var path = require('path');
 var router = express.Router();
 var databasePath = path.join(__dirname, '..', 'database.txt');
 
+const taxeRate = 0.15; // 15% de taxe
+const prixExtras = 1.50; // Prix par ingrédient extra
+
 
 // AFFICHER LA PAGE DE COMMANDE QUAND ON LANCE LA ROUTE 
 router.get('/', function (req, res, next) {
@@ -46,7 +49,7 @@ router.post('/', function (req, res, next) {
     const nombreIngredients = ingredients.length;
 
     // CALCULER LE PRIX DES EXTRAS
-    const prixExtras = nombreIngredients * 1.50;
+    const prixExtras = nombreIngredients * prixExtras;
 
     // MODULER LE PRIX SELON LA TAILLE
     const multiplicateursTailles = {
@@ -57,11 +60,11 @@ router.post('/', function (req, res, next) {
 
     // CALCULS FINALS
     const multiplicateurTaille = multiplicateursTailles[req.body.taille] || 1;
-    const prixAvecTaille = (prixType + prixExtras) * multiplicateurTaille;
+    const prixAvecTaille = (prixType * multiplicateurTaille) + prixExtras;
     const sousTotal = prixAvecTaille * quantite;
 
     // AJOUT DE LA TAXE
-    const taxe = sousTotal * 0.15;
+    const taxe = sousTotal * taxeRate;
     const prixTotal = sousTotal + taxe;
 
 
